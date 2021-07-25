@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MedLog</title>
+  <style>
+    .table {
+      display: table;
+      height: 100%;
+      width: 100%;
+      background: red;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .row {
+      display: table-row;
+    }
+    .row > * {
+      display: table-cell;
+    }
+    button {
+      width: 100%;
+      height: 100%;
+      font-size: 10vh;
+    }
+  </style>
+</head>
+<body>
+  <header class="main">
+    <div class="notice-wrapper">
+      {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+          <div class="show notice error notice-error">
+            <span class="notice-message">{{ message }}</span>
+          </div>
+        {% endfor %}
+      {% endwith %}
+    </div>
+  </header>
+
+  <form method="post" action="." class="table">
+    <div class="row">
+      <div class="cell"><button type="submit" name="event" value="mp">MP</button></div>
+      <div class="cell"><button type="submit" name="event" value="sleep">Sleep</button></div>
+    </div>
+    <div class="row">
+      <div class="cell"><button type="submit" name="event" value="awake">Awake</button></div>
+      <div class="cell"><button type="submit" name="event" value="hungry">Hungry</button></div>
+    </div>
+    <div class="row">
+      <div class="cell"><button type="submit" name="event" value="pooped">Pooped</button></div>
+      <div class="cell"><button type="submit" name="event" value="crawled">Crawled</button></div>
+    </div>
+  </form>
+</body>
+</html>
