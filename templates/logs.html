@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MedLog</title>
+</head>
+<body>
+  <header class="main">
+    <div class="notice-wrapper">
+      {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+          <div class="show notice error notice-error">
+            <span class="notice-message">{{ message }}</span>
+          </div>
+        {% endfor %}
+      {% endwith %}
+    </div>
+  </header>
+  <h1>Logs available for months:</h1>
+  <ul>
+  {% for month in months %}
+    <li><a href="{{month}}">{{month}}</a></li>
+  {% endfor %}
+  </ul>  
+</body>
+</html>

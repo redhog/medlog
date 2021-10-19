@@ -7,10 +7,11 @@
       display: table;
       height: 100%;
       width: 100%;
-      background: red;
+      background: white;
       position: absolute;
       left: 0;
       top: 0;
+      background: rgb(239, 239, 239);
     }
     .row {
       display: table-row;
@@ -18,10 +19,22 @@
     .row > * {
       display: table-cell;
     }
-    button {
+    .cell {
+      border: 1px solid rgb(128, 128, 128);
+    }
+    button, input[type=submit], input[type=text], .label {
       width: 100%;
       height: 100%;
       font-size: 10vh;
+      font-family: Arial;
+      text-align: center;
+      background: rgb(239, 239, 239);
+      display: block;
+      border: none;
+      margin: 0;
+    }
+    input {
+      border: none;
     }
   </style>
 </head>
@@ -39,6 +52,14 @@
   </header>
 
   <form method="post" action="." class="table">
+    <div class="row">
+      <div class="cell"><div class="label"><input type="checkbox" id="custom-time" name="custom-time"></input><label for="custom-time">Time</label></div></div>
+      <div class="cell"><input type="text" name="time" value="{{time}}"></input></div>      
+    </div>
+    <div class="row">
+      <div class="cell"><button type="submit" name="event" value="custom">Custom</button></div>
+      <div class="cell"><input type="text" name="event-custom"></input></div>
+    </div>
     <div class="row">
       <div class="cell"><button type="submit" name="event" value="mp">MP</button></div>
       <div class="cell"><button type="submit" name="event" value="sleep">Sleep</button></div>
