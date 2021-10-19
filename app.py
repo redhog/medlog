@@ -41,7 +41,7 @@ def log():
 
 @app.route('/log/<month>', methods=['GET'])
 def logs(month):
-    month = int(month)
+    assert "/" not in month
     with open("log-%s.txt" % (month,)) as f:
         return Response(f.read(), content_type="text/plan")
 
